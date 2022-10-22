@@ -1,0 +1,49 @@
+header {
+    padding: 10px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: linear-gradient(to right, rgb(74,87,177), rgb(35,20,92));
+    color: #ffffff;
+    text-align: center
+    ;
+}
+
+body {
+    text-align: center;
+    justify-content: center;
+}
+
+section {
+    display:inline-block;
+}
+
+.weatherinfo {
+    width: 50%;
+}
+
+.search-result {
+    border-style: solid;
+    border-width: 1px;
+}
+
+.weekdays-forcast {
+    height: 40%;
+}
+
+.form-input {
+    height: 30px;
+}
+
+.search-button{
+    height: 30px;
+    background-color: rgb(113,144,221);
+    border-style: none;
+}
+
+ul,
+ol,
+dl {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
