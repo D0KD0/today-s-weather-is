@@ -16,6 +16,10 @@ section {
     display:inline-block;
 }
 
+h2 {
+    margin: 25px 30px 7px;
+}
+
 .weatherinfo {
     width: 50%;
 }
@@ -33,7 +37,7 @@ section {
     height: 30px;
 }
 
-.search-button{
+.btn{
     height: 30px;
     background-color: rgb(113,144,221);
     border-style: none;
@@ -43,7 +47,7 @@ ul,
 ol,
 dl {
   list-style-type: none;
-  margin: 0;
+  margin: 10px;
   padding: 0;
+  text-align: left;
 }
-
