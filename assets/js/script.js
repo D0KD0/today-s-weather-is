@@ -1,6 +1,7 @@
 // Search form
 var searchFormEl = $('#search-form');
 var searchListEl = $('#search-list');
+var weatherinfo = $('.weatherinfo');
 
 // create function to handle form submission
 function handleFormSubmit() {
@@ -24,10 +25,9 @@ searchFormEl.on('submit', weatherSearch);
 
 // Weather API
 var resonseText = document.getElementById('search-result');
-
 var baseURLforWeather = "https://api.openweathermap.org/data/2.5/forecast?q=";
-var baseURLforForecast = "";
-var APIKey = "&appid=32619d7f41f3ca078999d4f3af06871e";
+var APIKey = "&appid=32619d7f41f3ca078999d4f3af06871e&units=imperial";
+
 
 
 function weatherSearch(event) {  
@@ -50,8 +50,13 @@ function weatherSearch(event) {
   })
 
   .then(function(data) {
+
+    // use lon and lat then pass to second api
+    // get forecat from second api
+
     displayWeather(data);
     displayForecast(data);
+    // call second api
   });
 
   function displayWeather(data) {
@@ -62,15 +67,39 @@ function weatherSearch(event) {
       var date = moment().format("MM/DD/YYYY");
         date.textContent = city + "(" + date + ")";
       var wind = document.createElement('p');
-        wind = "Wind:" + data.speed + "mph";
-      var humidity = document.createElement('p');
-        humidity = "Humidity:" + data.humidity + "%";
+        wind = "Wind:" + data.list[0].wind.speed + "mph";
+      var weather = document.createElement('p');
+        weather = data.list[0].weather[0].description;
       var temperature = document.createElement('p');
-        temperature = "Temp:" + data.temp + "F";
+        temperature = "Temp:" + data.list[0].main.temp + "°F";
+      
+      document.getElementById('weatherinfo').innerHTML=
+      `${date}
+       ${weather}
+       ${temperature}
+       ${wind}
+       `
+
+
   }
 
   function displayForecast(data) {
+
+    console.log(data);
+
+/* day, icon, temp, wind, humidity*/
+
+      var city = data.name;
+      var temperature = document.createElement('p');
+      temperature = "Temp:" + data.list[0].main.temp + "°F";
+      var wind = document.createElement('p');
+      wind = "Wind:" + data.list[0].wind.speed + "mph";
+      var weather = document.createElement('p');
+      weather = data.list[0].weather[0].description;
+
     //not coded yet
   }
+
+
 
 }
