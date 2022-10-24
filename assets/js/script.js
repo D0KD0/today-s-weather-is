@@ -75,12 +75,20 @@ function weatherSearch(event) {
       var temperature = document.createElement('p');
         temperature = "Temp:" + data.list[0].main.temp + "°F";
       
+
+      wind.setAttribute("class", "weatherinfo");
+      weather.setAttribute("class", "weatherinfo");
+      temperature.setAttribute("class", "weatherinfo");
+      wind.setAttribute("class", "weatherinfo");
+
       document.getElementById('weatherinfo').innerHTML=
       `${date}
       ${weather}
       ${temperature}
       ${wind}
       `
+
+
   }
 
   function displayForecast(data) {
