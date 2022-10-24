@@ -3,8 +3,7 @@ var searchFormEl = $('#search-form');
 var searchListEl = $('#search-list');
 
 // create function to handle form submission
-function handleFormSubmit(event) {
-  event.preventDefault();
+function handleFormSubmit() {
   // select form element by its `name` attribute and get its value
   var searchItem = $('input[name="search-input"]').val();
   // if there's nothing in the form entered, don't print to the page
@@ -25,18 +24,20 @@ searchFormEl.on('submit', weatherSearch);
 
 // Weather API
 var resonseText = document.getElementById('search-result');
-console.log(resonseText);
-var baseURLforWeather = "api.openweathermap.org/data/2.5/forecast?q=";
+
+var baseURLforWeather = "https://api.openweathermap.org/data/2.5/forecast?q=";
 var baseURLforForecast = "";
 var APIKey = "&appid=32619d7f41f3ca078999d4f3af06871e";
 
 
 function weatherSearch(event) {  
   event.preventDefault();
-  handleFormSubmit() 
 
   var searchItem = $('input[name="search-input"]').val();
+  console.log(searchItem);
   var queryURL = baseURLforWeather + searchItem + APIKey;
+  
+  handleFormSubmit() 
 
   fetch(queryURL) 
   .then(function (response) {
@@ -55,17 +56,21 @@ function weatherSearch(event) {
 
   function displayWeather(data) {
 
+    console.log(data);
+
       var city = data.name;
       var date = moment().format("MM/DD/YYYY");
         date.textContent = city + "(" + date + ")";
-      var temprature = document.createElement('p');
-        temprature = "Temp:" + data.main.temp + "F";
       var wind = document.createElement('p');
-        widn = "Wind:" + data.wind.speed + "mph";
+        wind = "Wind:" + data.speed + "mph";
       var humidity = document.createElement('p');
-        humidity = "Humidity:" + data.main.humidity + "%";
-
+        humidity = "Humidity:" + data.humidity + "%";
+      var temperature = document.createElement('p');
+        temperature = "Temp:" + data.temp + "F";
   }
 
+  function displayForecast(data) {
+    //not coded yet
+  }
 
 }
