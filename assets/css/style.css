@@ -4,7 +4,6 @@ header {
     background-image: linear-gradient(to right, rgb(74,87,177), rgb(35,20,92));
     color: #ffffff;
     text-align: center
-    ;
 }
 
 body {
@@ -18,10 +17,6 @@ section {
 
 h2 {
     margin: 25px 30px 7px;
-}
-
-.weatherinfo {
-    width: 50%;
 }
 
 .search-result {
@@ -49,5 +44,20 @@ dl {
   list-style-type: none;
   margin: 10px;
   padding: 0;
-  text-align: left;
+  text-align: center;
+}
+
+main {
+    display: flex;
+}
+
+.weatherinfo {
+    margin-top: 10px;
+    padding: 5px;
+    text-align: left;
+}
+
+
+.weather h2 {
+    text-align: left;
 }

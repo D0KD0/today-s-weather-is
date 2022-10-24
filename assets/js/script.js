@@ -63,6 +63,8 @@ function weatherSearch(event) {
 
     console.log(data);
 
+    var todaydiv = document.createElement('div');
+
       var city = data.name;
       var date = moment().format("MM/DD/YYYY");
         date.textContent = city + "(" + date + ")";
@@ -75,12 +77,10 @@ function weatherSearch(event) {
       
       document.getElementById('weatherinfo').innerHTML=
       `${date}
-       ${weather}
-       ${temperature}
-       ${wind}
-       `
-
-
+      ${weather}
+      ${temperature}
+      ${wind}
+      `
   }
 
   function displayForecast(data) {

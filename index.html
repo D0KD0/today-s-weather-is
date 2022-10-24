@@ -12,23 +12,33 @@
     ></script>
   </head>
 
+  <body>
+
     <header>
         <h1>Weather Dashboard</h1>
     </header>
 
-    <body>
-    <section class="search">
+    <main>
+
+    <div class="search" style="width: 25%">
         <h2>Search for a City:</h2>
         <form id="search-form">
-          <input type="text" class="form-input w-100" id="search-input" name="search-input" placeholder="Enter item name" />
+          <input type="text" class="form-input w-20" id="search-input" name="search-input" placeholder="Enter item name" />
           <button class="btn btn-info">Add Item</button>
         </form>
         <ul id="search-list"></ul>
-    </section>
+    </div>
 
-    <section class="weatherinfo" id="weatherinfo"></section>
+    <div class="weather" style="width: 70%">
+      <h2>Search Result:</h2>
+      <div class="weatherinfo" id="weatherinfo"></div>
+    </div>
+
+  </main>
+
+</body>
 
     <script src="./assets/js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  </body>
+
 </html>
