@@ -20,7 +20,7 @@ function handleFormSubmit(event) {
 }
 
 // Create a submit event listener on the form element
-searchFormEl.on('submit', handleFormSubmit);
+searchFormEl.on('submit', weatherSearch);
 
 
 // Weather API
@@ -29,10 +29,15 @@ console.log(resonseText);
 var baseURLforWeather = "api.openweathermap.org/data/2.5/forecast?q=";
 var baseURLforForecast = "";
 var APIKey = "&appid=32619d7f41f3ca078999d4f3af06871e";
-var searchItem = $('input[name="search-input"]').val();
-var queryURL = baseURLforWeather + searchItem + APIKey;
 
-function weatherSearch(searchItem) {  
+
+function weatherSearch(event) {  
+  event.preventDefault();
+  handleFormSubmit() 
+
+  var searchItem = $('input[name="search-input"]').val();
+  var queryURL = baseURLforWeather + searchItem + APIKey;
+
   fetch(queryURL) 
   .then(function (response) {
     if (response.ok) {
