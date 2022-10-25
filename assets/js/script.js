@@ -74,7 +74,7 @@ function weatherSearch(event) {
         <div id="card" style="width: 10rem;">
         <div id="card-body" class="indigo">
           <p> ${data.list[i].dt_txt.substring(0, 10)}</p>
-          <p> Icon: </p>
+          <p> Temp: ${data.list[i].main.temp}°F</p>
           <p> Wind: ${data.list[i].wind.speed} mph</p>
           <p> Humidity: ${data.list[i].main.humidity} %</p>
         </div>
