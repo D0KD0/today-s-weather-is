@@ -11,7 +11,8 @@ function handleFormSubmit() {
   if (!searchItem) {
     console.log('No search item filled out in form!');
     return;
-  }
+  } 
+
   console.log(searchItem);
   // print to the page
   searchListEl.append(searchItem + "<br>");
