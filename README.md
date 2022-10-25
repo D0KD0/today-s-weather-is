@@ -10,4 +10,4 @@ As a user searches the city, there will be two results: same-day forecast and 5-
 <img src="./assets/image/screenshot.png" />
 
 ## Deployed application link
-https://d0kd0.github.io/today-s-weather-is
+https://d0kd0.github.io/today-s-weather-is/
