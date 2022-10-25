@@ -21,10 +21,13 @@ h2 {
 }
 
 .search {
-    padding-top: 30px;
     padding-left: 30px;
     text-align: left;
     display: inline-block;
+}
+
+#search-list {
+    text-align: center;
 }
 
 .search-result {
@@ -54,6 +57,7 @@ main {
 
 .weatherinfo {
     margin-top: 10px;
+    margin-right: 100px;
     padding: 15px;
     text-align: left;
     display: block;
@@ -74,3 +78,17 @@ main {
     background-color: darkblue;
 }
 
+div {
+    display: inline-block;
+}
+
+#future {
+    margin-top: 10px;
+}
+
+.indigo {
+    background-color: rgb(35,20,92);
+    color: white;
+    padding: 10px;
+    border-radius: 1em;
+}

@@ -14,7 +14,7 @@ function handleFormSubmit() {
   }
   console.log(searchItem);
   // print to the page
-  searchListEl.append('<li>' + searchItem + '</li>');
+  searchListEl.append(searchItem + "<br>");
   // clear the form input element
   $('input[name="search-input"]').val('');
 }
@@ -70,8 +70,8 @@ function weatherSearch(event) {
     {
       document.getElementById("future").innerHTML +=
       `
-        <div id="card">
-        <div id="card-body">
+        <div id="card" style="width: 10rem;">
+        <div id="card-body" class="indigo">
           <p> ${data.list[i].dt_txt.substring(0, 10)}</p>
           <p> Icon: </p>
           <p> Wind: ${data.list[i].wind.speed} mph</p>
@@ -83,54 +83,33 @@ function weatherSearch(event) {
 
 
   // Current weather forecast 
-  var currentforWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`;
+    var currentforWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`;
 
-  fetch(currentforWeather).then(res => res.json()).then( result =>{
-    console.log(result);
+    fetch(currentforWeather).then(res => res.json()).then( result =>{
+      console.log(result);
 
-    var city = result.name;
-    var date = moment().format("MM/DD/YYYY");
-    var wind = document.createElement('p');
-      wind = "Wind:" + result.wind.speed+ "mph";
-    var weather = document.createElement('p');
-      weather = result.weather[0].main;
-    var temperature = document.createElement('p');
-      temperature = "Temp:" + result.main.temp + "°F";
-    var humidity = document.createElement('p');
-      humidity = result.weather[0].main.humidity + "%";
-    
-
-    document.getElementById('weatherinfo').innerHTML +=
-    `
-    <div class="card">
-    <div class="card-body">
-    <p> ${result.name} (${date}) </p>
-    <p> Temp: ${result.main.temp} °F </p>
-    <p> Wind:  ${result.wind.speec} mph </p>
-    <p> Humidity: ${result.main.humidity} % </p>
-    </div>
-    </div>
-    `
-  })
-}
-
-
-  function displayForecast(data) {
-    console.log(data);
-
-/* day, icon, temp, wind, humidity*/
-
-      var city = data.name;
-      var temperature = document.createElement('p');
-      temperature = "Temp:" + data.list[0].main.temp + "°F";
+      var city = result.name;
+      var date = moment().format("MM/DD/YYYY");
       var wind = document.createElement('p');
-      wind = "Wind:" + data.list[0].wind.speed + "mph";
       var weather = document.createElement('p');
-      weather = data.list[0].weather[0].description;
-
-    //not coded yet
+      var temperature = document.createElement('p');
+      var humidity = document.createElement('p');
+      
+      document.getElementById('weatherinfo').innerHTML +=
+      `
+      <h2>Search result:</h2>
+      <div class="card">
+      <div class="card-body">
+      <p> <b>${result.name} (${date}) </b></p>
+      <p> Temp: ${result.main.temp} °F </p>
+      <p> Wind:  ${result.wind.speed} mph </p>
+      <p> Humidity: ${result.main.humidity} % </p>
+      </div>
+      </div>
+      <br>
+      <h2>5-day forecast:</h2>
+      `
+    })
   }
-
-
 
 }
