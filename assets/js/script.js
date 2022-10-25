@@ -56,7 +56,6 @@ function weatherSearch(event) {
     // get forecat from second api
 
     displayWeather(data);
-    displayForecast(data);
     // call second api
   });
 
@@ -69,20 +68,21 @@ function weatherSearch(event) {
 
     for(let i=0; i<data.list.length; i+=8)
     {
-
       document.getElementById("future").innerHTML +=
       `
-        <div id=weatherCard>
-        <p> ${data.list[i].dt_txt.substring(0, 10)}</p>
-        <p> Icon: </p>
-        <p> Wind: ${data.list[i].wind.speed} mph</p>
-        <p> Humidity: ${data.list[i].main.humidity} %</p>
+        <div id="card">
+        <div id="card-body">
+          <p> ${data.list[i].dt_txt.substring(0, 10)}</p>
+          <p> Icon: </p>
+          <p> Wind: ${data.list[i].wind.speed} mph</p>
+          <p> Humidity: ${data.list[i].main.humidity} %</p>
         </div>
-      
+        </div>
       `
     }
 
-// Current weather forecast 
+
+  // Current weather forecast 
   var currentforWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}`;
 
   fetch(currentforWeather).then(res => res.json()).then( result =>{
@@ -99,13 +99,17 @@ function weatherSearch(event) {
     var humidity = document.createElement('p');
       humidity = result.weather[0].main.humidity + "%";
     
-    document.getElementById('weatherinfo').innerHTML=
+
+    document.getElementById('weatherinfo').innerHTML +=
     `
-    ${city}
-    ${date}
-    ${weather}
-    ${temperature}
-    ${wind}
+    <div class="card">
+    <div class="card-body">
+    <p> ${result.name} (${date}) </p>
+    <p> Temp: ${result.main.temp} °F </p>
+    <p> Wind:  ${result.wind.speec} mph </p>
+    <p> Humidity: ${result.main.humidity} % </p>
+    </div>
+    </div>
     `
   })
 }
