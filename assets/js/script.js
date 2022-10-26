@@ -1,28 +1,23 @@
 // Search form
+// referenced from the class material, Stu_Form_Elements (line 3 ~ line 20)
 var searchFormEl = $('#search-form');
 var searchListEl = $('#search-list');
 var weatherinfo = $('.weatherinfo');
 
-// create function to handle form submission
+
 function handleFormSubmit() {
-  // select form element by its `name` attribute and get its value
   var searchItem = $('input[name="search-input"]').val();
-  // if there's nothing in the form entered, don't print to the page
   if (!searchItem) {
     console.log('No search item filled out in form!');
     return;
   } 
 
   console.log(searchItem);
-  // print to the page
   searchListEl.append(searchItem + "<br>");
-  // clear the form input element
   $('input[name="search-input"]').val('');
 }
 
-// Create a submit event listener on the form element
 searchFormEl.on('submit', weatherSearch);
-
 
 // Weather API
 var resonseText = document.getElementById('search-result');
