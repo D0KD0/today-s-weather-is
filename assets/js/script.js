@@ -67,6 +67,9 @@ function weatherSearch(event) {
     var lat = data.city.coord.lat;
     var lon = data.city.coord.lon;
 
+    document.getElementById("future").innerHTML = '';
+    document.getElementById('weatherinfo').innerHTML = '';
+
     for(let i=0; i<data.list.length; i+=8)
     {
       document.getElementById("future").innerHTML +=
